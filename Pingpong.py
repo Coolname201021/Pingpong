@@ -28,7 +28,7 @@ background  = pygame.transform.scale(pygame.image.load('Brilliant Black_SLAB_web
 class Player(pygame.sprite.Sprite):
     def __init__(self,player_image,player_x,player_y,player_speed):
         super().__init__()
-        self.image = pygame.transform.scale(pygame.image.load(player_image),(70,70)) #була помилка в слові transform
+        self.image = pygame.transform.scale(pygame.image.load(player_image),(70,70))
         self.speed = player_speed
         self.rect = self.image.get_rect()
         self.rect.x = player_x
@@ -54,7 +54,7 @@ class Hero(Player):
         keys = pygame.key.get_pressed()
         if keys[pygame.K_UP] and self.rect.y >= 0:
             self.rect.y -= self.speed
-        if keys[pygame.K_DOWN] and self.rect.y <= 500: #була неправильна цифра, у нас висота 500
+        if keys[pygame.K_DOWN] and self.rect.y <= 500: 
             self.rect.y += self.speed
 
 class Wall(pygame.sprite.Sprite):
@@ -106,8 +106,8 @@ class Wall(pygame.sprite.Sprite):
 
 
 
-hero = Hero('ddssudhdusudu.png',270,400,10) #стояв неправильний клас (був Player), потрібен був Hero, у нас клас Hero потрібен для головного героя
-enemy = Enemy('Soccer_ball.svg.png',30,300,5) #стояв неправильний клас (був Player), потрібен клас Enemy, клас Enemy - для створення ворога
+hero = Hero('ddssudhdusudu.png',270,400,10) 
+enemy = Enemy('Soccer_ball.svg.png',30,300,5) 
 wall = Wall(20,550,(130,183,254),10,100)
 wall1 = Wall(20,550,(130,183,254),700,100)
 game = True
@@ -118,7 +118,7 @@ while game:
     for e in pygame.event.get():
         if e.type == pygame.QUIT:
             game = False
-    if finish != True: #були неправильні відступи, все поставив у for, а треба було у while
+    if finish != True:
          score_text = font1.render("score:"+str(score), True,(250,250,250))
          score_text1 = font1.render("your max score:"+str(score1), True,(250,250,250))
          window.blit(background, (0,0))
